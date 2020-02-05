@@ -1,9 +1,14 @@
 import React from 'react';
+import Wrapper from './components/Wrapper';
+import TwoBoxes from './components/TwoBoxes';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <p>Start page</p>
+      <Wrapper envVar="ven_asta"/>
+      <hr />
+      <TwoBoxes />
+      <hr />
     </div>
   );
 }
