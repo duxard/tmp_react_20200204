@@ -2,6 +2,7 @@ import React from 'react';
 import Wrapper from './components/Wrapper';
 import TwoBoxes from './components/TwoBoxes';
 import Heroky from './components/Heroky';
+import NewsFeed from './components/NewsFeed';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <hr />
       <Heroky />
       <hr />
+      <NewsFeed />
     </div>
   );
 }
