@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class NewsFeed extends React.Component {
   constructor(){
@@ -8,6 +9,8 @@ export default class NewsFeed extends React.Component {
     this.handleMessage = this.handleMessage.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
 
+    this._apiBase = 'https://asta-web-1.herokuapp.com/api/newsfeed';
+
     this.state = {
       username: '',
       message: '',
@@ -16,7 +19,22 @@ export default class NewsFeed extends React.Component {
   }
 
   sendData(e) {
-    // TODO
+    e.preventDefault();
+    let pieceOfNews = {
+      username: this.state.username,
+      message: this.state.message,
+      rating: Math.floor(Math.random()*5),
+      date: new Date()
+    };
+
+    axios.post(this._apiBase, pieceOfNews)
+      .then(res => {
+        this.setState({
+          username: '',
+          message: ''
+        });
+      })
+      .catch(e => console.log(e));
   }
 
   handleUsername(e) {
