@@ -1,5 +1,5 @@
 import React from 'react';
-import HerokuList from "./components/HerokuList";
+import HerokuList from "./components/HerokuList/HerokuList";
 
 function App() {
   return (

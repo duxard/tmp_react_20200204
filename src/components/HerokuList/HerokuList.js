@@ -1,12 +1,13 @@
 import React from "react";
-import HerokuService from "../services/HerokuService";
+import HerokuListService from "./HerokuListService";
+import { isInputValid } from "./HerokuListValidators";
 
 let store = [];
 
 export default class HerokuList extends React.Component {
   constructor(props) {
     super(props);
-    this._herokuService = new HerokuService();
+    this._herokuService = new HerokuListService();
     this.addTodo = this.addTodo.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.state = {
@@ -17,7 +18,20 @@ export default class HerokuList extends React.Component {
 
   addTodo(e) {
     e.preventDefault();
-    //TODO
+    const newTodoItem = this.state.inputText;
+    if(!isInputValid(newTodoItem)) {
+      return;
+    }
+
+    this._herokuService.postTodos({item: newTodoItem})
+      .then(data => {
+        store.push(data);
+        this.setState({
+          todos: store,
+          inputText: ""
+        });
+      })
+      .catch(error => console.log(error));
   }
 
   handleInput(e) {
