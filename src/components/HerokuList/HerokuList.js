@@ -1,6 +1,7 @@
 import React from "react";
 import HerokuListService from "./HerokuListService";
 import { isInputValid } from "./HerokuListValidators";
+import "./styles/herokuList.css";
 
 let store = [];
 
@@ -12,8 +13,13 @@ export default class HerokuList extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.state = {
       todos: [],
-      inputText: ""
+      inputText: "",
+      isInputValid: true
     };
+  }
+
+  showWarning() {
+    return this.state.isInputValid ? "mNonVisible" : "mVisible";
   }
 
   addTodo(e) {
@@ -57,11 +63,12 @@ export default class HerokuList extends React.Component {
         <p>{this.props.env}</p>
         <div className="main-form">
           <form onSubmit={this.addTodo}>
-            <input className="main-form-text"
+            <input className="main-form-text mDisplayBlock"
                    type="text"
                    value={this.state.inputText}
                    onChange={this.handleInput}
             />
+            <div className={`main-form-warning ${this.showWarning()}`}>The data is invalid</div>
             <input className="main-form-btnSubmit" type="submit"/>
           </form>
         </div>
