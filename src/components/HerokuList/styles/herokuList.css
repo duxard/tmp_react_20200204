@@ -9,3 +9,8 @@
 .mNonVisible {
     visibility: hidden;
 }
+
+.mErrorColor {
+    color: red;
+    border-color: red;
+}

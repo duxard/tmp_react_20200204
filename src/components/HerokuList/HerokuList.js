@@ -11,6 +11,7 @@ export default class HerokuList extends React.Component {
     this._herokuService = new HerokuListService();
     this.addTodo = this.addTodo.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.filterOutList = this.filterOutList.bind(this);
     this.state = {
       todos: [],
       inputText: "",
@@ -26,6 +27,9 @@ export default class HerokuList extends React.Component {
     e.preventDefault();
     const newTodoItem = this.state.inputText;
     if(!isInputValid(newTodoItem)) {
+      this.setState({
+        isInputValid: false
+      });
       return;
     }
 
@@ -34,7 +38,8 @@ export default class HerokuList extends React.Component {
         store.push(data);
         this.setState({
           todos: store,
-          inputText: ""
+          inputText: "",
+          isInputValid: true
         });
       })
       .catch(error => console.log(error));
@@ -44,6 +49,17 @@ export default class HerokuList extends React.Component {
     this.setState({
       inputText: e.target.value
     })
+  }
+
+  filterOutList(e) {
+    const filteredList = store.filter(todoItem => {
+      return !!~todoItem.item
+        .toLowerCase()
+        .indexOf(this.filterListText.value.toLowerCase());
+    });
+    this.setState({
+      todos: filteredList
+    });
   }
 
   componentDidMount() {
@@ -68,11 +84,16 @@ export default class HerokuList extends React.Component {
                    value={this.state.inputText}
                    onChange={this.handleInput}
             />
-            <div className={`main-form-warning ${this.showWarning()}`}>The data is invalid</div>
+            <div className={`main-form-warning mErrorColor ${this.showWarning()}`} >The data is invalid</div>
             <input className="main-form-btnSubmit" type="submit"/>
           </form>
         </div>
         <hr />
+        <input type="text"
+               className="main-filterList mDisplayBlock"
+               onChange={this.filterOutList}
+               ref={input => this.filterListText = input}
+        />
         <div className="main-list">
           {
             this.state.todos.map(todo => <div key={todo._id}>{todo.item}</div>)
