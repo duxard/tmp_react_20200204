@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
 import HerokuList from "./components/HerokuList/HerokuList";
+import "./app.css";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <p>Start page</p>
+    <div className="app-main">
+      <Navbar/>
       <HerokuList env="QA"/>
     </div>
   );
