@@ -63,6 +63,7 @@ export default class HerokuList extends React.Component {
   }
 
   componentDidMount() {
+    store.splice(0);
     this._herokuService.getTodos()
       .then(data => {
         store.push(...data);

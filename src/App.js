@@ -14,9 +14,9 @@ const App = () => {
     <Router>
       <div className="app-main">
         <Navbar/>
-        <HerokuList env="QA"/>
         <Switch>
           <Route exact path='/' component={HomePage} />
+          <Route path='/heroku' component={HerokuList} />
         </Switch>
       </div>
     </Router>

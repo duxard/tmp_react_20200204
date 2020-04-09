@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, Link } from 'react-router-dom';
 import "./navbar.scss";
 
 const Navbar = () => {
@@ -8,11 +9,11 @@ const Navbar = () => {
       <input type="checkbox" id="menu" className="navbar-checkbox" />
       <label htmlFor="menu" className="navbar-label">Menu</label>
       <ul className="navbar-main">
-        <li><a href="#">Link A</a></li>
-        <li><a href="#">Link B</a></li>
-        <li><a href="#">Link C</a></li>
-        <li><a href="#">Link D</a></li>
-        <li><a href="#">Link E</a></li>
+        <li><NavLink to="/">Home page</NavLink></li>
+        <li><NavLink to="/heroku">Heroku</NavLink></li>
+        <li><NavLink to="#">Link C</NavLink></li>
+        <li><NavLink to="#">Link D</NavLink></li>
+        <li><NavLink to="#">Link E</NavLink></li>
       </ul>
     </nav>
    </div>
