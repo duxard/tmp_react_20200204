@@ -22,6 +22,30 @@ nav ul {
   background-color: #333333;
 }
 
+.navbar-icon {
+  padding: 10px 0 0 10px;
+  height: 45px;
+  #menu {
+    display: none;
+  }
+  label {
+    cursor: pointer;
+    background: url(./images/burger.png) no-repeat left center;
+    background-size: contain;
+    padding: 0 0 16px 0;
+    color: transparent;
+  }
+}
+
+.navbar-icon input:checked {
+
+}
+
+//.navbar-main {
+//  max-height: 0;
+//  overflow: hidden;
+//}
+
 @media screen and (min-width: 768px) {
   nav ul {
     display: flex;

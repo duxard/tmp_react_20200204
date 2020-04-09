@@ -4,6 +4,10 @@ import "./navbar.scss";
 const Navbar = () => {
  return (
    <div className="navbar">
+    <div className="navbar-icon">
+      <input type="checkbox" id="menu"/>
+      <label htmlFor="menu">Menu</label>
+    </div>
     <nav>
      <ul className="navbar-main">
       <li><a href="#">Link A</a></li>
