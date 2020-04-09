@@ -13,6 +13,9 @@
     background-size: 65%;
     padding: 0 0 16px 0;
     color: transparent;
+    &::selection {
+      color: transparent;
+    }
   }
 
   nav ul {
