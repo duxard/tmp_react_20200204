@@ -11,9 +11,9 @@ const Navbar = () => {
       <ul className="navbar-main">
         <li><NavLink to="/">Home page</NavLink></li>
         <li><NavLink to="/heroku">Heroku</NavLink></li>
-        <li><NavLink to="#">Link C</NavLink></li>
-        <li><NavLink to="#">Link D</NavLink></li>
-        <li><NavLink to="#">Link E</NavLink></li>
+        <li><NavLink to="/dummya">Page A</NavLink></li>
+        <li><NavLink to="/dummyb">Page B</NavLink></li>
+        <li><NavLink to="/dummyc">Page C</NavLink></li>
       </ul>
     </nav>
    </div>
